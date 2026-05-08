@@ -207,18 +207,18 @@ body.dark .form-card {
   background: #1f1f1f;
 }
 
-.input-group {
+.enroll-input-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 18px;
 }
 
-.input-group label {
+.enroll-input-group label {
   margin-bottom: 8px;
   font-weight: 600;
 }
 
-.input-group input {
+.enroll-input-group input {
   padding: 14px;
   border: 1px solid #dcdcdc;
   border-radius: 10px;
@@ -226,7 +226,7 @@ body.dark .form-card {
   transition: 0.2s;
 }
 
-.input-group input:focus {
+.enroll-input-group input:focus {
   border-color: var(--main-color);
   outline: none;
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
