@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="layout">
+        <div class="top-bar">
+            <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+            <button id="themeToggle" class="theme-btn"> <i class="fas fa-moon"></i></button>
+        </div>
+        <nav class="sidebar" id="sidebar">
+            <h1 class="brand">Bright Future</h1>
+            <ul class="navLinks">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="courses.html"><i class="fas fa-book"></i> Courses</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+
+            <div class="sidebar-bottom">
+                <hr>
+                <ul>
+
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="content">
+            <section class="enroll-wrapper">
+
+                <div class="welcome-card">
+                    <div>
+                        <h1>Enroll Student</h1>
+                        <p>
+                            Register new students quickly and manage their information easily.
+                        </p>
+                    </div>
+
+                    <div class="student-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                </div>
+
+                <div class="form-card">
+
+                    <form id="enrollForm">
+
+                        <div class="input-group">
+                            <label>Student Name</label>
+                            <input type="text" id="name" placeholder="Enter student name">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Age</label>
+                            <input type="number" id="age" placeholder="Enter age">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Grade Level</label>
+                            <input type="text" id="grade" placeholder="Enter grade">
+                        </div>
+
+                        <button class="enroll-btn">
+                            <i class="fas fa-plus-circle"></i>
+                            Enroll Student
+                        </button>
+
+                    </form>
+
+                    <p id="message"></p>
+
+                    <div id="studentSummary"></div>
+
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js">
+    </script>
+</body>
+
+</html>

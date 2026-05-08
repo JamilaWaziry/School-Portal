@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="layout">
+        <div class="top-bar">
+            <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+            <button id="themeToggle" class="theme-btn"> <i class="fas fa-moon"></i></button>
+        </div>
+        <nav class="sidebar" id="sidebar">
+            <h1 class="brand">Bright Future</h1>
+            <ul class="navLinks">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="courses.html"><i class="fas fa-book"></i> Courses</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+
+            <div class="sidebar-bottom">
+                <hr>
+                <ul>
+
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <main class="content">
+
+            <section class="contact-info">
+
+                <!-- left -->
+                <div class="contact-left">
+
+                    <div class="contact-badge">
+                        <i class="fas fa-circle"></i>
+                        Bright Future School
+                    </div>
+
+                    <h1>
+                        Let’s Build <br>
+                        Your Future Together
+                    </h1>
+
+                    <p>
+                        Contact our admissions and support team for academic help, or general school inquiries.
+                    </p>
+
+                    <div class="contact-cards">
+
+                        <div class="info-card">
+                            <div class="icon-box">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+
+                            <div>
+                                <h3>Email</h3>
+                                <span>support@brightfuture.com</span>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="icon-box">
+                                <i class="fas fa-phone"></i>
+                            </div>
+
+                            <div>
+                                <h3>Phone</h3>
+                                <span>+9373131313</span>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="icon-box">
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+
+                            <div>
+                                <h3>Location</h3>
+                                <span>Kabul, Afghanistan</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--right -->
+                <div class="contact-right">
+
+                    <div class="form-top">
+                        <h2>Send a Message</h2>
+                        <p>We usually reply within 24 hours.</p>
+                    </div>
+
+                    <form id="contactForm">
+
+                        <div class="input-group">
+                            <input type="text" id="conName" required>
+                            <label>Full Name</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="email" id="conEmail" required>
+                            <label>Email Address</label>
+                        </div>
+
+                        <div class="input-group">
+                            <textarea id="conMsg" rows="5" required></textarea>
+                            <label>Your Message</label>
+                        </div>
+
+                        <button class="send-message-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+
+                    </form>
+
+                    <p id="contactMessage"></p>
+
+                </div>
+
+            </section>
+
+        </main>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
