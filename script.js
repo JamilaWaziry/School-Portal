@@ -1,9 +1,19 @@
 // dark mode
 const themeBtn = document.getElementById("themeToggle");
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+}
 themeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
 });
 
+//burger menu
 const hamburger = document.getElementById("hamburger");
 const sidebar = document.getElementById("sidebar");
 
@@ -21,13 +31,15 @@ if (enrollForm) {
     const name = document.getElementById("name").value;
     const age = document.getElementById("age").value;
     const grade = document.getElementById("grade").value;
+    const number = document.getElementById("number").value;
+    const email = document.getElementById("email").value;
 
-    if (!name || !age || !grade) {
+    if (!name || !age || !grade || !number || !email) {
       alert("Please fill all fields");
       return;
     }
 
-    const student = { name, age, grade };
+    const student = { name, age, grade, number, email };
     localStorage.setItem("student", JSON.stringify(student));
 
     document.getElementById("message").textContent =
@@ -58,11 +70,15 @@ if (document.getElementById("pName")) {
   const contactInfo = document.getElementById("contactInfo");
 
   document.getElementById("showEmail").addEventListener("click", () => {
-    contactInfo.textContent = "Email: student@mail.com";
+    contactInfo.textContent = student
+      ? `Email: ${student.email}`
+      : "No student data";
   });
 
   document.getElementById("showPhone").addEventListener("click", () => {
-    contactInfo.textContent = "Phone: 123456";
+    contactInfo.textContent = student
+      ? `Phone: ${student.number}`
+      : "No student data";
   });
 
   document.getElementById("hideInfo").addEventListener("click", () => {

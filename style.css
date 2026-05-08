@@ -169,6 +169,12 @@ form {
   max-width: 900px;
 }
 
+#enrollForm {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
 .welcome-card {
   background: linear-gradient(135deg, var(--second-color), var(--main-color));
   color: white;
@@ -769,7 +775,11 @@ body.dark .input-group label {
   font-weight: bold;
   color: #084120;
 }
-
+footer {
+  background: #f8f8f8;
+  padding: 20px;
+  text-align: center;
+}
 @media (min-width: 768px) {
   .sidebar {
     position: fixed;
@@ -819,6 +829,12 @@ body.dark .input-group label {
   .form-card,
   .contact-right {
     padding: 22px;
+  }
+  #enrollForm {
+    grid-template-columns: 1fr 1fr;
+  }
+  .enroll-btn {
+    grid-column: span 2;
   }
 
   .profile-header {
