@@ -24,6 +24,7 @@ hamburger.addEventListener("click", () => {
 
 // Enrollment
 const enrollForm = document.getElementById("enrollForm");
+
 if (enrollForm) {
   enrollForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -34,26 +35,53 @@ if (enrollForm) {
     const number = document.getElementById("number").value;
     const email = document.getElementById("email").value;
 
-    if (!name || !age || !grade || !number || !email) {
+    const studentImage = document.getElementById("studentImage");
+    const file = studentImage.files[0];
+
+    if (!name || !age || !grade || !number || !email || !file) {
       alert("Please fill all fields");
       return;
     }
 
-    const student = { name, age, grade, number, email };
-    localStorage.setItem("student", JSON.stringify(student));
+    const defaultImage = "user.png";
 
-    document.getElementById("message").textContent =
-      `Welcome to the Bright Future School ${name}!`;
+    if (file) {
+      const reader = new FileReader();
 
-    document.getElementById("studentSummary").innerHTML = `
-      <div class="card">
-        <p>Name: ${name}</p>
-        <p>Age: ${age}</p>
-        <p>Grade: ${grade}</p>
-      </div>
-    `;
+      reader.onload = function () {
+        saveStudent(reader.result);
+      };
 
-    enrollForm.reset();
+      reader.readAsDataURL(file);
+    } else {
+      saveStudent(defaultImage);
+    }
+    function saveStudent(imageData) {
+      const student = {
+        name,
+        age,
+        grade,
+        number,
+        email,
+        image: imageData,
+      };
+
+      localStorage.setItem("student", JSON.stringify(student));
+
+      document.getElementById("message").textContent =
+        `Welcome to the Bright Future School ${name}!`;
+
+      document.getElementById("studentSummary").innerHTML = `
+        <div class="card">
+
+          <p>Name: ${name}</p>
+          <p>Age: ${age}</p>
+          <p>Grade: ${grade}</p>
+        </div>
+      `;
+
+      enrollForm.reset();
+    }
   });
 }
 
@@ -65,6 +93,7 @@ if (document.getElementById("pName")) {
     document.getElementById("pName").textContent = student.name;
     document.getElementById("pAge").textContent = student.age;
     document.getElementById("pGrade").textContent = student.grade;
+    document.getElementById("profileImage").src = student.image;
   }
 
   const contactInfo = document.getElementById("contactInfo");
@@ -98,8 +127,18 @@ const courseList = document.getElementById("courseList");
 
 if (courseList) {
   let courses = JSON.parse(localStorage.getItem("courses")) || [
-    { name: "Math", instructor: "Mr A", grade: "10", desc: "Algebra basics" },
-    { name: "Science", instructor: "Ms B", grade: "11", desc: "Physics intro" },
+    {
+      name: "Math",
+      instructor: "Mr Hamid",
+      grade: "10",
+      desc: "Algebra basics",
+    },
+    {
+      name: "Science",
+      instructor: "Ms Lima",
+      grade: "11",
+      desc: "Physics intro",
+    },
   ];
 
   function renderCourses(list = courses) {
@@ -110,10 +149,19 @@ if (courseList) {
       card.className = "card";
 
       card.innerHTML = `
-        <h3>${course.name}</h3>
-        <p>${course.instructor}</p>
-        <button data-index="${index}">View Details</button>
-      `;
+  <h3>${course.name}</h3>
+  <p>${course.instructor}</p>
+
+  <div class="course-buttons">
+    <button class="view-btn" data-index="${index}">
+      View Details
+    </button>
+
+    <button class="delete-btn" data-index="${index}">
+      Remove
+    </button>
+  </div>
+`;
 
       courseList.appendChild(card);
     });
@@ -123,17 +171,29 @@ if (courseList) {
 
   // showing course  detial
   courseList.addEventListener("click", function (e) {
-    if (e.target.tagName === "BUTTON") {
-      const index = e.target.dataset.index;
+    const index = e.target.dataset.index;
+
+    if (e.target.classList.contains("view-btn")) {
       const course = courses[index];
 
       document.getElementById("courseDetails").innerHTML = `
-        <div class="card">
-          <h3>${course.name}</h3>
-          <p>${course.desc}</p>
-          <p>Grade: ${course.grade}</p>
-        </div>
-      `;
+      <div class="card">
+        <h3>${course.name}</h3>
+        <p>${course.desc}</p>
+        <p>Grade: ${course.grade}</p>
+      </div>
+    `;
+    }
+
+    // remove course
+    if (e.target.classList.contains("delete-btn")) {
+      courses.splice(index, 1);
+
+      localStorage.setItem("courses", JSON.stringify(courses));
+
+      renderCourses();
+
+      document.getElementById("courseDetails").innerHTML = "";
     }
   });
 

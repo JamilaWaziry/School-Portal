@@ -8,14 +8,65 @@ body {
   transition: 0.3s;
   overflow-x: hidden;
 }
-body.dark {
-  background: #121212;
-  color: #eee;
-}
 :root {
   --main-color: #001f3f;
   --second-color: #003366;
 }
+/* dark mode */
+body.dark {
+  background: #121212;
+  color: #eee;
+}
+body.dark footer {
+  background: #121212;
+  color: #eee;
+}
+body.dark .theme-btn {
+  color: white !important;
+}
+body.dark .hamburger {
+  color: white !important;
+}
+
+body.dark .contact-info-box {
+  background: #2b2b2b;
+}
+
+body.dark .tools-card,
+body.dark .card,
+body.dark .add-course-card,
+body.dark .contact-right,
+body.dark .contact-card,
+body.dark .form-card,
+body.dark .status-card {
+  background: #1f1f1f;
+}
+
+body.dark input,
+body.dark textarea {
+  background: #2b2b2b;
+  color: white;
+  border: 1px solid #444;
+}
+
+
+body.dark input:-webkit-autofill,
+body.dark input:-webkit-autofill:hover,
+body.dark input:-webkit-autofill:focus,
+body.dark textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #2b2b2b inset;
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+body.dark label {
+  color: #aaa;
+  background: #1f1f1f;
+}
+body.dark .input-group label {
+  background: none;
+}
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -85,15 +136,12 @@ body.dark {
   color: #060809;
   padding: 8px;
   cursor: pointer;
-  background: none;
-}
-body.dark .theme-btn {
-  color: white;
+  background: transparent !important;
 }
 
 .hamburger {
   font-size: 24px;
-  background: none;
+  background: transparent !important;
   border: none;
   color: #060809;
   cursor: pointer;
@@ -101,13 +149,11 @@ body.dark .theme-btn {
 .hamburger.active {
   color: rgb(244, 247, 247);
 }
-body.dark .hamburger {
-  color: white;
-}
+
 .hamburger:focus,
 .hamburger:active {
   outline: none;
-  background: none;
+  background: none !important;
   box-shadow: none;
 }
 
@@ -209,10 +255,6 @@ form {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
-body.dark .form-card {
-  background: #1f1f1f;
-}
-
 .enroll-input-group {
   display: flex;
   flex-direction: column;
@@ -255,7 +297,28 @@ body.dark .form-card {
   background: var(--main-color);
   transform: translateY(-2px);
 }
+#studentImage {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
 
+#studentImage::file-selector-button {
+  background: #3d9fe0;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+#studentImage::file-selector-button:hover {
+  background: #2980b9;
+}
 #message {
   margin-top: 20px;
   font-weight: bold;
@@ -334,11 +397,6 @@ body.dark .form-card {
   margin-bottom: 18px;
 }
 
-body.dark .contact-card,
-body.dark .status-card {
-  background: #1f1f1f;
-}
-
 .profile-buttons {
   display: flex;
   flex-direction: column;
@@ -350,10 +408,6 @@ body.dark .status-card {
   background: #f4f6f8;
   padding: 12px;
   border-radius: 10px;
-}
-
-body.dark .contact-info-box {
-  background: #2b2b2b;
 }
 
 .status-form {
@@ -401,10 +455,6 @@ body.dark .contact-info-box {
   padding: 20px;
   border-radius: 14px;
   margin-bottom: 18px;
-}
-
-body.dark .tools-card {
-  background: #1f1f1f;
 }
 
 /* filter */
@@ -455,10 +505,6 @@ body.dark .tools-card {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-body.dark .card {
-  background: #1f1f1f;
-}
-
 .card h3 {
   margin-top: 0;
 }
@@ -480,9 +526,22 @@ body.dark .card {
   border-radius: 14px;
   margin-top: 20px;
 }
+.course-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
 
-body.dark .add-course-card {
-  background: #1f1f1f;
+.course-buttons button {
+  flex: 1;
+}
+
+.delete-btn {
+  background: rgb(196, 146, 156);
+}
+
+.delete-btn:hover {
+  background: rgb(162, 84, 84);
 }
 
 .add-course-card h2 {
@@ -517,6 +576,7 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+
 button {
   padding: 10px;
   background: var(--second-color);
@@ -532,29 +592,6 @@ button:hover {
 }
 .updateStatus:hover {
   background: var(--main-color);
-}
-.grid {
-  display: grid;
-  gap: 10px;
-}
-
-.card {
-  background: #fff;
-  padding: 12px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-body.dark .card {
-  background: #1f1f1f;
-}
-.profile-img {
-  border-radius: 50%;
-}
-
-.filters {
-  display: flex;
-  gap: 5px;
-  margin: 10px 0;
 }
 
 /* contact page */
@@ -670,10 +707,6 @@ body.dark .card {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 }
 
-body.dark .contact-right {
-  background: #1f1f1f;
-}
-
 .form-top h2 {
   margin: 0;
   font-size: 1.8rem;
@@ -705,11 +738,6 @@ body.dark .contact-right {
   transition: 0.2s;
 }
 
-body.dark .input-group input,
-body.dark .input-group textarea {
-  border-color: #444;
-  color: white;
-}
 
 .input-group label {
   position: absolute;
@@ -722,10 +750,6 @@ body.dark .input-group textarea {
 
   background: white;
   padding: 0 6px;
-}
-
-body.dark .input-group label {
-  background: #1f1f1f;
 }
 
 .input-group input:focus,
@@ -741,6 +765,12 @@ body.dark .input-group label {
   top: -10px;
   font-size: 0.8rem;
   color: var(--second-color);
+}
+body.dark .input-group input:focus + label,
+body.dark .input-group textarea:focus + label,
+body.dark .input-group input:valid + label,
+body.dark .input-group textarea:valid + label {
+  color: whitesmoke;
 }
 
 /* button */
