@@ -252,6 +252,23 @@ form {
   padding: 25px;
   border-radius: 18px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+.enroll-wrapper,
+.form-card,
+#enrollForm,
+.enroll-input-group,
+.enroll-input-group input,
+#studentImage {
+  width: 100%;
+  max-width: 100%;
+}
+
+img,
+input,
+textarea,
+button {
+  max-width: 100%;
 }
 
 .enroll-input-group {
